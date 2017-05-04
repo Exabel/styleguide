@@ -20,8 +20,8 @@
   </option>
   <option name="IMPORT_LAYOUT_TABLE">
     <value>
-      <package name="" withSubpackages="true" static="true" />
       <emptyLine />
+      <package name="" withSubpackages="true" static="true" />
       <package name="" withSubpackages="true" static="false" />
     </value>
   </option>
@@ -64,6 +64,9 @@
   <JSCodeStyleSettings>
     <option name="INDENT_CHAINED_CALLS" value="false" />
   </JSCodeStyleSettings>
+  <JavaCodeStyleSettings>
+    <option name="DO_NOT_WRAP_AFTER_SINGLE_ANNOTATION" value="true" />
+  </JavaCodeStyleSettings>
   <Python>
     <option name="USE_CONTINUATION_INDENT_FOR_ARGUMENTS" value="true" />
   </Python>
