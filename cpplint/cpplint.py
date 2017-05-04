@@ -1211,8 +1211,8 @@ def Error(filename, linenum, category, confidence, message):
   if _ShouldPrintError(category, confidence, linenum):
     _cpplint_state.IncrementErrorCount(category)
     if _cpplint_state.output_format == 'vs7':
-      sys.stderr.write('%s(%s):  %s  [%s] [%d]\n' % (
-          filename, linenum, message, category, confidence))
+      sys.stderr.write('%s(%s): error cpplint: [%s] %s [%d]\n' % (
+          filename, linenum, category, message, confidence))
     elif _cpplint_state.output_format == 'eclipse':
       sys.stderr.write('%s:%s: warning: %s  [%s] [%d]\n' % (
           filename, linenum, message, category, confidence))
@@ -2779,7 +2779,8 @@ def CheckForNonStandardConstructs(filename, clean_lines, linenum,
   # Look for single-argument constructors that aren't marked explicit.
   # Technically a valid construct, but against style.
   explicit_constructor_match = Match(
-      r'\s+(?:inline\s+)?(explicit\s+)?(?:inline\s+)?%s\s*'
+      r'\s+(?:(?:inline|constexpr)\s+)*(explicit\s+)?'
+      r'(?:(?:inline|constexpr)\s+)*%s\s*'
       r'\(((?:[^()]|\([^()]*\))*)\)'
       % re.escape(base_classname),
       line)
